@@ -6,7 +6,7 @@ class Form extends React.Component{
       return (
 
           <div>
-              <h2>Forms</h2>
+              <h2 onClick={this.props.getWeather}>Forms</h2>
 
               
           </div>

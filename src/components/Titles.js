@@ -6,7 +6,7 @@ class Titles extends React.Component{
       return (
 
           <div>
-              <h2>Titles</h2>
+              <h2>Titles dsfd</h2>
 
               
           </div>
