@@ -15,13 +15,15 @@ class App extends React.Component{
 
   //od v 16 React nemoraš više raditi contructor i sve da zadaš state
   state = {
-        temperature: undefined,
+        ribac: undefined,
+          temperature: undefined,
           humidity: undefined,
           country: undefined,
           city: undefined,
           description: undefined,
-          error: ""
-
+          wind: undefined,
+          error: "",
+        
   }
 
   getWeather = async (e) => {
@@ -42,6 +44,7 @@ class App extends React.Component{
           humidity: data.main.humidity,
           country: data.sys.country,
           city: data.name,
+          wind: data.wind.speed,
           description: data.weather[0].description,
           error: ""
         })
@@ -52,6 +55,7 @@ class App extends React.Component{
           humidity: undefined,
           country: undefined,
           city: undefined,
+          wind: undefined,
           description: undefined,
           error: "Please enter the value"
         })
@@ -59,24 +63,37 @@ class App extends React.Component{
     
   }
   yo(){
-    console.log('yooo')
+    return <p>yooooooooooo</p>
   }
+
 
   render(){
       return (
 
           <div>
-              <h2>sfdsfds</h2>
-
-              <h3 >dsfsdf</h3>
-              <Titles></Titles>
-              <Form getWeather={this.getWeather}></Form>
-              <Weather error={this.state.error} humidity={this.state.humidity} country={this.state.country} description={this.state.description} city={this.state.city} temperature={this.state.temperature} yo={this.yo}></Weather>
+             <div className="wrapper">
+               <div className="main">
+                 <div className="container">
+                   <div className="row">
+                    <div className="col-md-5 title-container">
+                           <Titles></Titles>
+                    </div>
+                      <div className="col-md-7 form-container">
+                          <Form getWeather={this.getWeather}></Form>
+                          <Weather wind={this.state.wind} yo={this.state.ribac} error={this.state.error} humidity={this.state.humidity} country={this.state.country} description={this.state.description} city={this.state.city} temperature={this.state.temperature} yo={this.yo}></Weather>
+                      </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
           </div>
 
         );
   }
 
 };
+
+         
+              
 
 export default App;
